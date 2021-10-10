@@ -1,0 +1,314 @@
+html, html body {
+    margin: 0px;
+    font-family: sans-serif;
+    background-color: #24252A;
+    color: white;
+}
+
+/*title bar*/
+
+#titleBar {
+    width: 95%;
+    /*height: 3vh;*/
+    margin: auto;
+    margin-top: 8px;
+    display: flex;
+    /*border: 1px white solid;*/
+}
+
+#logo img {
+    height: 50px;
+}
+
+#searchBar i {
+    vertical-align: baseline;
+}
+
+#loginAndReg {
+    margin-left: auto;
+}
+
+#loginAndReg button {
+    text-decoration: none;
+}
+
+#titleBarProfile {
+    margin-left: auto;
+}
+
+#titleBarProfile img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+/*nav bar*/
+
+/*#navContainer {*/
+/*    background-color: black;*/
+/*}*/
+
+#navBar {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    font-size: 150%;
+    background-color: #0088a9;
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+#navBar ul {
+    list-style: none;
+    display: flex;
+}
+
+#navBarLeft {
+    margin-right: auto;
+    margin-left: 20px;
+    width: 50%;
+}
+
+.navItemsLeft , .navItemsRight {
+    font-weight: bold;
+}
+
+.navItemsLeft, .navItemsRight li {
+    cursor: pointer;
+}
+
+.navItemsLeft:hover, .navItemsRight li:hover {
+    color: black;
+}
+
+#navBarRight {
+    margin-right: 20px;
+    margin-left: auto;
+    width: 50%;
+}
+
+#hotspots, #check-in {
+    margin-left: 40px;
+}
+
+#stats {
+    margin-left: auto;
+}
+
+#statsOptions ul {
+    display: block;
+}
+
+#statsOptions {
+    display: none;
+    position: absolute;
+    width: 15%;
+    z-index: 1;
+    border: 1px white solid;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+#stats:hover #statsOptions {
+    display: block;
+}
+
+/*mainpage*/
+
+#mainpage {
+    width: 95%;
+    /*border: 1px white solid;*/
+    margin: auto;
+}
+
+#mainpageMap {
+    width: 69%;
+    /*height: 737px;*/
+    /*border: 1px white solid;*/
+    margin: auto;
+    /*margin-top: 20px;*/
+    box-sizing: border-box;
+
+}
+
+#mainpageMap img {
+    width: 100%;
+}
+
+#mapboxMap {
+    width: 100%;
+    height: 850px;
+}
+
+#mainpageStatsCountriesUpper, #mainpageStatsCountriesLower {
+    /*border: 1px white solid;*/
+    /*height: 200px;*/
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#mainpageStatsCountriesUpper img, #mainpageStatsCountriesLower img {
+    width: 100%;
+}
+
+#mainpageStats div div {
+    /*border: 1px white solid;*/
+    width: 30%;
+}
+
+
+
+/*profile css*/
+
+#profileInfo, #profileUpdate {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 20px auto;
+    border: 2px white solid;
+    border-radius: 15px;
+}
+
+#profileLeft img {
+    width: 150px;
+}
+
+#profileLeft {
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+                                /*direction, first color, last color*/
+    background: linear-gradient(to top left, #FFB6C1, #87ceeb);
+}
+
+#profileRightData {
+    display: flex;
+    border: 0;
+}
+
+#profileRight {
+
+    padding: 20px;
+    width: 70%;
+    background-color: #24252A;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+}
+
+.boxRight, .boxLeft {
+    padding: 0 20px 20px 20px;
+    flex-grow: 1;
+}
+
+.boxRight div, .boxLeft div {
+    border-bottom: 1px solid grey;
+}
+
+#buttonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#profileUpdate div div div {
+    border: 0px;
+}
+
+#profileUpdate input {
+    width: 100%;
+}
+
+/*dataTable*/
+
+.dataTable {
+    border-collapse:collapse;
+    min-width:1000px;
+    margin:0cm auto;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.dataTable thead tr {
+    text-align:left;
+    background-color: #FFFFFF;
+    color: #000000;
+
+}
+
+.dataTable th,
+.dataTable td {
+    padding: 12px 15px;
+}
+
+.dataTable tbody tr {
+    text-align:left;
+    border-bottom: solid 1px #FFFFFF;
+    border-left: solid 2px #FFFFFF;
+    border-right: solid 2px #FFFFFF;
+}
+
+/*.dataTable tbody tr:nth-of-type(even) {*/
+/*    background-color:whitesmoke;*/
+/*}*/
+
+/*check in*/
+
+#checkIn h1 {
+    color: white;
+    text-align: center;
+}
+
+.checkInForm {
+    border: 2px solid white;
+    border-radius: 15px;
+    background-color: white;
+    width: 200px;
+    margin: 10px auto;
+    padding: 10px;
+    color: black;
+    box-sizing: border-box;
+}
+
+.checkInForm button {
+    border-radius: 10px;
+    background-color: #24252A;
+    color: white;
+    border: none;
+    padding: 7px;
+}
+
+.checkInHistoryTable {
+    border-collapse:collapse;
+    min-width:1000px;
+    margin:0cm auto;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.checkInHistoryTable thead tr {
+    text-align:left;
+    background-color: #FFFFFF;
+    color: #000000;
+
+}
+
+.checkInHistoryTable th,
+.checkInHistoryTable td {
+    padding:12px 15px;
+}
+
+.checkInHistoryTable tbody tr {
+    text-align:left;
+    border-bottom: solid 1px #dddddd;
+}
+
+.checkInHistoryTable tbody tr {
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}

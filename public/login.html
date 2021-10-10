@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/login.css" />
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="https://kit.fontawesome.com/73dac9883a.js" crossorigin="anonymous"></script>
+        <script src="javascripts/java.js" defer></script>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+
+    <body>
+        <div id="body">
+            <div id="register">
+                <fieldset class="pure-form pure-form-aligned">
+                    <div class="pure-control-group">
+                        <label for="aligned-name">Email</label>
+                        <input type="text" id="aligned-name" placeholder="Email" v-model='accountLogin.email'/>
+                        <span class="pure-form-message-inline">This is a required field.</span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="aligned-password">Password</label>
+                        <input type="password" id="aligned-password" placeholder="Password" v-model='accountLogin.password'/>
+                        <span class="pure-form-message-inline">This is a required field.</span>
+                    </div>
+                    <div class="pure-controls">
+                        <label for="aligned-cb" class="pure-checkbox">
+                            <input type="checkbox" id="aligned-cb"/> I&#x27;ve read the terms and conditions
+                        </label>
+                        <button type="submit" class="pure-button pure-button-primary" v-on:click="login()">Submit</button>
+                        <p id="loginFailed"></p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </body>
+
+</html>

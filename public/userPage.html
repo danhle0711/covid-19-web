@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>COVID-19 Statistics</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/index.css" />
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="https://kit.fontawesome.com/73dac9883a.js" crossorigin="anonymous"></script>
+        <script src="javascripts/java.js" defer></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    </head>
+
+    <body>
+        <div id="body">
+
+        <header>
+            <div id="titleBar">
+
+                <div id="logo">
+                    <img src="images/hcdcpng.png" alt="alt">
+                </div>
+
+                <div id="searchBar">
+                    <input type="text" id="searchBar" placeholder="Search for a city or country">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
+
+                <!--<div id="loginAndReg">-->
+                <!--    <a href="#">Login</a> | <a href="#">Register</a>-->
+                <!--</div>-->
+
+                <div id="titleBarProfile">
+                    <a v-on:click="selectedService='profileInfo', userInfo()"><img src="images/avatar.png" alt="avatar"></a>
+                </div>
+
+            </div>
+
+            <div id="navContainer">
+                <div id="navBar">
+                    <div id="navBarLeft">
+                        <p class="navItemsLeft" v-on:click="selectedService='mainpage'">COVID-19 Dashboard</p>
+                    </div>
+
+                    <div id="navBarRight">
+                        <ul class="navItemsRight">
+                            <li id="stats" v-on:click="selectedService='dataTable'">Statistics
+                                <!--<div id="statsOptions">-->
+                                <!--    <ul>-->
+                                <!--        <li id="statsOption1" v-on:click="selectedService='dataTable'">Data Table</li>-->
+                                <!--        <li id="statsOption2" v-on:click="selectedService='data_map'">Data Map</li>-->
+                                <!--    </ul>-->
+                                <!--</div>-->
+                            </li>
+                            <!--<li id="hotspots">Hotspots</li>-->
+                            <li id="check-in" v-on:click="selectedService='checkIn'">Check-in</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="mainpage" v-if="selectedService==='mainpage'">
+
+            <div id="mainpageMap">
+                <div id="mapboxMap"></div>
+            </div>
+
+            <div id="mainpageStats">
+                <div id="mainpageStatsCountriesUpper">
+                    <div id="mainpageStatsCountry1">
+                        <!--ấn vào link để xem thêm-->
+                        <img src="images/graph.png" alt="flag">
+                        <!--<a>United States of America</a>-->
+                        <!--<p>Total confirmed cases: 36,099,344</p>-->
+                        <!--<p>Total deaths: x</p>-->
+                    </div>
+                    <div id="mainpageStatsCountry2">
+                        <!--ấn vào link để xem thêm-->
+                        <img src="images/graph.png" alt="flag">
+                        <!--<a>India</a>-->
+                        <!--<p>Total confirmed cases: 32,117,826</p>-->
+                        <!--<p>Total deaths: x</p>-->
+                    </div>
+                    <div id="mainpageStatsCountry3">
+                        <!--ấn vào link để xem thêm-->
+                        <img src="images/graph.png" alt="flag">
+                        <!--<a>Brazil</a>-->
+                        <!--<p>Total confirmed cases: 20,245,085</p>-->
+                        <!--<p>Total deaths: x</p>-->
+                    </div>
+                 </div>
+                 <div id="mainpageStatsCountriesLower">
+                    <div id="mainpageStatsCountry4">
+                        <!--ấn vào link để xem thêm-->
+                        <img src="images/graph.png" alt="flag">
+                        <!--<a>Russia</a>-->
+                        <!--<p>Total confirmed cases: 6,557,068</p>-->
+                        <!--<p>Total deaths: x</p>-->
+                    </div>
+                    <div id="mainpageStatsCountry5">
+                        <!--ấn vào link để xem thêm-->
+                        <img src="images/graph.png" alt="flag">
+                        <!--<a>France</a>-->
+                        <!--<p>Total confirmed cases: 6,244,939</p>-->
+                        <!--<p>Total deaths: x</p>-->
+                    </div>
+                    <div id="mainpageStatsCountry6">
+                        <!--ấn vào link để xem thêm-->
+                        <img src="images/graph.png" alt="flag">
+                        <!--<a>The United Kingdom</a>-->
+                        <!--<p>Total confirmed cases: 6,179,510</p>-->
+                        <!--<p>Total deaths: x</p>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="dataTable" v-if="selectedService==='dataTable'">
+            <table class="dataTable">
+                <thead>
+                    <tr>
+                        <th v-for="item in dataTable">{{item}}</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr v-for="row in dataTableInfo">
+                        <td v-for="cell in row">{{cell}}</td>
+                    </1tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div id="profileInfo" v-if="selectedService==='profileInfo'">
+
+            <div id="profileLeft">
+                <img src="images/avatar.png" alt="avatar">
+                <h3>{{profile.firstName}} {{profile.lastName}}</h3>
+                <p>{{profile.username}}</p>
+                <button v-on:click="selectedService='profileUpdate'">EDIT</button>
+            </div>
+
+            <div id="profileRight">
+                <div id="profileRightData">
+                    <div class="boxLeft">
+                        <div class="firstName">
+                            <h3>First name</h3>
+                            <p>{{profile.firstName}}</p>
+                        </div>
+                        <div class="dateOfBirth">
+                            <h3>DOB</h3>
+                            <p>{{profile.DOB}}</p>
+                        </div>
+                        <div class="experience">
+                            <h3>Experience</h3>
+                            <p>{{profile.experience}}</p>
+                        </div>
+                    </div>
+
+                    <div class="boxRight">
+                        <div class="lastName">
+                            <h3>Last name</h3>
+                            <p>{{profile.lastName}}</p>
+                        </div>
+                        <div class="address">
+                            <h3>Address</h3>
+                            <p>{{profile.address}}</p>
+                        </div>
+                        <div class="hobbies">
+                            <h3>Hobbies</h3>
+                            <p>{{profile.hobbies}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="profileUpdate" v-if="selectedService==='profileUpdate'">
+
+            <div id="profileLeft">
+                <img src="avatar.png" alt="avatar">
+                <h3>{{profile.firstName}} {{profile.lastName}}</h3>
+                <p>danhle0711</p>
+                <div id="buttonsContainer">
+                    <button v-on:click="selectedService='profileInfo'">SUBMIT</button>
+                    <button v-on:click="selectedService='profileInfo'">CANCEL</button>
+                </div>
+            </div>
+
+            <div id="profileRight">
+                <div id="profileRightData">
+                    <div class="boxLeft">
+                        <div class="firstName">
+                            <h3>First name</h3>
+                            <input type="text" placeholder="Enter your info" id="first_name" v-model="profile.firstName">
+                        </div>
+                        <div class="dob">
+                            <h3>DOB</h3>
+                            <input type="text" placeholder="Enter your info" id="dateOfBirth" v-model="profile.dateOfBirth" >
+                        </div>
+                        <div class="experience">
+                            <h3>Experience</h3>
+                            <input type="text" placeholder="Enter your info" id="experience" v-model="profile.experience">
+                        </div>
+                    </div>
+
+                    <div class="boxRight">
+                        <div class="lastName">
+                            <h3>Last name</h3>
+                            <input type="text" placeholder="Enter your info" id="lastName" v-model="profile.lastName">
+                        </div>
+                        <div class="address">
+                            <h3>Address</h3>
+                            <input type="text" placeholder="Enter your info" id="address">
+                        </div>
+                        <div class="hobbies">
+                            <h3>Hobbies</h3>
+                            <input type="text" placeholder="Enter your info" id="hobbies">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="checkIn" v-if="selectedService==='checkIn'">
+            <h1>Check-in</h1>
+            <div class="checkInForm">
+                <label>Name</label>
+                <input type="text" name="personName" placeholder="Enter your name: " v-model="personForm.name">
+                <br /><br />
+
+                <label>DOB</label><br />
+                <input type="date" name="personDOB" placeholder="DOB" v-model="personForm.DOB">
+                <br /><br />
+
+                <label>Country of nationality</label>
+                <input type="text" name="personCountry" placeholder="Country" v-model="personForm.country">
+                <br /><br />
+
+                <button v-on:click="addPerson()">ADD PERSON</button>
+
+            </div>
+
+            <div class="checkInList">
+                <table class="checkInHistoryTable">
+                    <thead>
+                        <tr>
+                            <th v-for="x in titleForm">{{x}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="person in peopleForm">
+                            <td v-for="x in person">{{x}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        </div>
+    </body>
+</html>

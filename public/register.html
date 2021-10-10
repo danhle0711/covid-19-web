@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/register.css" />
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="https://kit.fontawesome.com/73dac9883a.js" crossorigin="anonymous"></script>
+        <script src="javascripts/java.js" defer></script>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+
+    <body>
+        <div id="body">
+            <div id="register">
+                <fieldset class="pure-form pure-form-aligned">
+                    <div class="pure-control-group">
+                        <label for="aligned-firstname">First name</label>
+                        <input type="text" id="aligned-firstname" placeholder="First name" v-model='accountRegister.firstName'/>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="aligned-lastname">Last name</label>
+                        <input type="text" id="aligned-lastname" placeholder="Last name" v-model='accountRegister.lastName'/>
+                        <span class="pure-form-message-inline">This is a required field.</span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="aligned-username">Username</label>
+                        <input type="text" id="aligned-username" placeholder="Username" v-model='accountRegister.username'/>
+                        <span class="pure-form-message-inline">This is a required field.</span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="aligned-password">Password</label>
+                        <input type="password" id="aligned-password" placeholder="Password" v-model='accountRegister.password'/>
+                        <span class="pure-form-message-inline">This is a required field.</span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="aligned-email">Email Address</label>
+                        <input type="email" id="aligned-email" placeholder="Email address" v-model='accountRegister.email'/>
+                        <span class="pure-form-message-inline">This is a required field.</span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="aligned-DOB">DOB</label>
+                        <input type="date" id="aligned-DOB" v-model='accountRegister.DOB'/>
+                        <span class="pure-form-message-inline">This is a required field.</span>
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="aligned-phone">Phone number</label>
+                        <input type="text" id="aligned-phone" placeholder="Phone number" v-model='accountRegister.phoneNumber'/>
+                        <span class="pure-form-message-inline">This is a required field.</span>
+                    </div>
+                    <div class="pure-controls">
+                        <button type="submit" class="pure-button pure-button-primary" v-on:click='register()'>Submit</button>
+                    </div>
+                    <p id="successfullyRegistered"></p>
+                </fieldset>
+            </div>
+        </div>
+    </body>
+
+</html>
+
