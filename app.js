@@ -25,7 +25,10 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-var dbConnectionPool=mysql.createPool({host:'localhost', database: 'COVID19'});
+var dbConnectionPool=mysql.createPool({
+    host:'localhost',
+    database: 'COVID19'
+});
 app.use(function(req,res,next) {
     req.pool= dbConnectionPool;
     next();
