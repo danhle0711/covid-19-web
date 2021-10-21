@@ -17,6 +17,6 @@ Start website
   - `mysql --host=127.0.0.1`
   - `use COVID19;`
 
-User credentials
+Default user credentials
 - email: default@covid19web.danhle0711.com
 - password: password
