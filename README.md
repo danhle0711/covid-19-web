@@ -1,5 +1,7 @@
 # covid-19-web
 
+Website hosted on heroku: https://covid-tracking-web.herokuapp.com/
+
 - Languages: HTML, CSS, JavaScript
 - Environment: NodeJS, ran using Express
 - Database: COVID19
